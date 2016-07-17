@@ -36,11 +36,19 @@ rollbot.on("message", function(message) {
         rollbot.sendMessage(channel_id, "There's no reason you need those sorts of numbers.");
         return;
       }
-      var sum = dice.reduce(function(prev, curr) {
-        return prev + curr;
-      });
 
-      var message_content = dice.join(", ") + " (" + sum + ")";
+      var message_content = "";
+
+      if(n_dice > 1) {
+        var sum = dice.reduce(function(prev, curr) {
+          return prev + curr;
+        });
+
+        message_content = dice.join(", ") + " (" + sum + ")";
+      } else {
+        message_content = dice[0];
+      }
+
 
       rollbot.sendMessage(channel_id, message_content);
     }
