@@ -10,6 +10,10 @@ var roll = function(dice, sides) {
   var rolls = [];
   var min = 1;
   var max = sides;
+
+  if(dice > 100 || sides > 100) {
+    return false;
+  }
   
   for(var i = 0; i < dice; i++) {
     // Get a random number between min (inclusive) and max (inclusive)
@@ -28,6 +32,10 @@ rollbot.on("message", function(message) {
       n_dice = parseInt(match_data[1], 10);
       n_sides = parseInt(match_data[2], 10);
       var dice = roll(n_dice, n_sides);
+      if(!dice) {
+        rollbot.sendMessage(channel_id, "There's no reason you need those sorts of numbers.");
+        return;
+      }
       var sum = dice.reduce(function(prev, curr) {
         return prev + curr;
       });
