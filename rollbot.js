@@ -4,6 +4,9 @@ var fs = require('fs');
 
 var rollbot = new Discord.Client();
 
+// A list of channels that the bot will respond to commands in.
+var active_channels = ["dnd"];
+
 var roll = function(dice, sides) {
   var rolls = [];
   var min = 1;
@@ -19,7 +22,7 @@ var roll = function(dice, sides) {
 
 
 rollbot.on("message", function(message) {
-  if(message.channel.name === "dnd") {
+  if(active_channels.indexOf(message.channel.name) != -1) {
     var channel_id = message.channel.id;
     var match_data = message.content.match(/\/roll ([0-9]+)d([0-9]+)/);
     if(match_data) {
