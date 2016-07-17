@@ -4,7 +4,7 @@ Simply a Discord bot for rolling dice.
 
 # Commands
 
-The only supported command is `/roll`
+The only command is `/roll`
 
 Syntax: `/roll xdy` where x is the number of dice to roll and y is the number 
 of sides the dice have.
