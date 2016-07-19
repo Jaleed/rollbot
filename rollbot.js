@@ -4,7 +4,6 @@ var ezroller = require('ezroller');
 
 var rollbot = new Discord.Client();
 
-
 rollbot.on("message", function(message) {
   var channel_id = message.channel.id;
   var match_data = message.content.match(/\/roll ([0-9]+)d([0-9]+)/);
