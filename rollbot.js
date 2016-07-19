@@ -13,17 +13,17 @@ var roll = function(dice, sides) {
   }
   
   for(var i = 0; i < dice; i++) {
-    // Get a random number between min (inclusive) and max (inclusive)
-    rolls[i] = Math.floor(Math.random() * (max - min + 1)) + min;
+    // Get a random dice roll capped at the number of sides.
+    rolls[i] = Math.floor(Math.random() * sides) + 1;
   }
 
   return(rolls);
 };
 
-
 rollbot.on("message", function(message) {
   var channel_id = message.channel.id;
   var match_data = message.content.match(/\/roll ([0-9]+)d([0-9]+)/);
+
   if(match_data) {
     n_dice = parseInt(match_data[1], 10);
     n_sides = parseInt(match_data[2], 10);
@@ -44,7 +44,6 @@ rollbot.on("message", function(message) {
     } else {
       message_content = dice[0];
     }
-
 
     rollbot.sendMessage(channel_id, message_content);
   }
