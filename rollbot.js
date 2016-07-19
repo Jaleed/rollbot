@@ -1,22 +1,9 @@
 var Discord = require("discord.js");
 var fs = require('fs');
+var ezroller = require('ezroller');
 
 var rollbot = new Discord.Client();
 
-var roll = function(dice, sides) {
-  var rolls = [];
- 
-  if(dice > 100 || sides > 100) {
-    return false;
-  }
-  
-  for(var i = 0; i < dice; i++) {
-    // Get a random dice roll capped at the number of sides.
-    rolls[i] = Math.floor(Math.random() * sides) + 1;
-  }
-
-  return(rolls);
-};
 
 rollbot.on("message", function(message) {
   var channel_id = message.channel.id;
@@ -25,7 +12,7 @@ rollbot.on("message", function(message) {
   if(match_data) {
     n_dice = parseInt(match_data[1], 10);
     n_sides = parseInt(match_data[2], 10);
-    var dice = roll(n_dice, n_sides);
+    var dice = ezroller.roll(n_dice, n_sides);
     if(!dice) {
       rollbot.sendMessage(channel_id, "There's no reason you need those sorts of numbers.");
       return;
