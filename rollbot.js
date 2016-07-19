@@ -5,9 +5,7 @@ var rollbot = new Discord.Client();
 
 var roll = function(dice, sides) {
   var rolls = [];
-  var min = 1;
-  var max = sides;
-
+ 
   if(dice > 100 || sides > 100) {
     return false;
   }
