@@ -1,0 +1,31 @@
+{
+  "name": "rollbot",
+  "version": "1.0.0",
+  "description": "dice rolling discord bot",
+  "main": "rollbot.js",
+  "dependencies": {
+    "discord.js": "^8.0.0",
+    "ezroller": "0.0.1",
+    "request": "^2.73.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdszy/rollbot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "chat",
+    "dice"
+  ],
+  "author": "mdszy (http://mdszy.me)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdszy/rollbot/issues"
+  },
+  "homepage": "https://github.com/mdszy/rollbot#readme"
+}
