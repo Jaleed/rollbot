@@ -1,4 +1,8 @@
 config.json
+rollbot.pid
+rollbot.out
+rollbot.log
+rollbot.err
 
 # Logs
 logs

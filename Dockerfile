@@ -7,4 +7,4 @@ WORKDIR /usr/src/app
 
 ADD . .
 
-CMD ["node", "rollbot.js"]
+CMD ["node", "run.js"]
