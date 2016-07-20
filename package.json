@@ -5,7 +5,7 @@
   "main": "rollbot.js",
   "dependencies": {
     "discord.js": "^8.0.0",
-    "ezroller": "0.0.1",
+    "roller": "^1.0.1",
     "request": "^2.73.0"
   },
   "devDependencies": {},

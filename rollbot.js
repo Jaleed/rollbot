@@ -1,6 +1,6 @@
 var Discord = require("discord.js");
 var fs = require('fs');
-var ezroller = require('ezroller');
+var roller = require('roller');
 
 var rollbot = new Discord.Client();
 
@@ -11,7 +11,7 @@ rollbot.on("message", function(message) {
   if(match_data) {
     n_dice = parseInt(match_data[1], 10);
     n_sides = parseInt(match_data[2], 10);
-    var dice = ezroller.roll(n_dice, n_sides);
+    var dice = roller.roll(n_dice, n_sides);
     if(!dice) {
       rollbot.sendMessage(channel_id, "There's no reason you need those sorts of numbers.");
       return;
