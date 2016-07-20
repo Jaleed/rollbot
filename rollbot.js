@@ -18,15 +18,16 @@ rollbot.on("message", function(message) {
     }
 
     var message_content = "";
+    var roll_user = message.author;
 
     if(n_dice > 1) {
       var sum = dice.reduce(function(prev, curr) {
         return prev + curr;
       });
 
-      message_content = dice.join(", ") + " (" + sum + ")";
+      message_content = roll_user.mention() + ": " + dice.join(", ") + " (" + sum + ")";
     } else {
-      message_content = dice[0];
+      message_content = roll_user.mention() + ": " + dice[0];
     }
 
     rollbot.sendMessage(channel_id, message_content);
@@ -36,4 +37,5 @@ rollbot.on("message", function(message) {
 fs.readFile("config.json", function(err, data) {
   var auth_token =  JSON.parse(data).discord_token;
   rollbot.loginWithToken(auth_token);
+  console.log("Bot started.");
 });
