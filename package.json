@@ -5,8 +5,8 @@
   "main": "rollbot.js",
   "dependencies": {
     "discord.js": "^8.0.0",
-    "roller": "^1.0.1",
-    "request": "^2.73.0"
+    "forever-monitor": "^1.7.0",
+    "roller": "^1.0.1"
   },
   "devDependencies": {},
   "scripts": {
