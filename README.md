@@ -1,3 +1,5 @@
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=mdszy&url=http://github.com/mdszy/rollbot&title=rollbot&language=&tags=github&category=software) 
+
 # rollbot
 
 Simply a Discord bot for rolling dice.
