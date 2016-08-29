@@ -6,11 +6,16 @@ var rollbot = new Discord.Client();
 
 rollbot.on("message", function(message) {
   var channel_id = message.channel.id;
-  var match_data = message.content.match(/\/roll ([0-9]+)d([0-9]+)/);
+  var match_data = message.content.match(/^\/roll ([1-9][0-9]*)d([0-9]+)/);
 
   if(match_data) {
     var n_dice = parseInt(match_data[1], 10);
     var n_sides = parseInt(match_data[2], 10);
+
+    if(n_dice > 10000) {
+      rollbot.sendMessage(channel_id, "Unfortunately for you, computers have a limited amount of memory, so unless you want me to run out, stop sending ludicrous numbers. Thanks.");
+      return;
+    }
 
     console.log("rolling " + n_dice + "d" + n_sides);
     var dice = roller.roll(n_dice, n_sides);
@@ -31,6 +36,8 @@ rollbot.on("message", function(message) {
 
     if(message_content.length > 2000) {
       rollbot.sendMessage(channel_id, "The length of the response exceeds Discord's message length limit. However, the sum of the rolls was " + sum);
+
+      rollbot.sendMessage(channel_id, sum_message);
       return;
     }
 
