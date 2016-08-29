@@ -12,19 +12,26 @@ rollbot.on("message", function(message) {
     var n_dice = parseInt(match_data[1], 10);
     var n_sides = parseInt(match_data[2], 10);
 
+    console.log("rolling " + n_dice + "d" + n_sides);
     var dice = roller.roll(n_dice, n_sides);
 
     var message_content = "";
     var roll_user = message.author;
+    var sum;
 
     if(n_dice > 1) {
-      var sum = dice.reduce(function(prev, curr) {
+      sum = dice.reduce(function(prev, curr) {
         return prev + curr;
       });
 
       message_content = roll_user.mention() + ": " + dice.join(", ") + " (" + sum + ")";
     } else {
       message_content = roll_user.mention() + ": " + dice[0];
+    }
+
+    if(message_content.length > 2000) {
+      rollbot.sendMessage(channel_id, "The length of the response exceeds Discord's message length limit. However, the sum of the rolls was " + sum);
+      return;
     }
 
     rollbot.sendMessage(channel_id, message_content);
