@@ -35,7 +35,7 @@ rollbot.on("message", function(message) {
     }
 
     if(message_content.length > 2000) {
-      rollbot.sendMessage(channel_id, "The length of the response exceeds Discord's message length limit. However, the sum of the rolls was " + sum);
+      var sum_message = "The length of the response exceeds Discord's message length limit. However, the sum of the rolls was " + sum;
 
       rollbot.sendMessage(channel_id, sum_message);
       return;
