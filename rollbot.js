@@ -12,11 +12,6 @@ rollbot.on("message", function(message) {
     var n_dice = parseInt(match_data[1], 10);
     var n_sides = parseInt(match_data[2], 10);
 
-    if(n_dice > 100 || n_sides > 100) {
-      rollbot.sendMessage(channel_id, "There's no reason you need those sorts of numbers.");
-      return;
-    }
-
     var dice = roller.roll(n_dice, n_sides);
 
     var message_content = "";
