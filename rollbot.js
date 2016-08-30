@@ -6,7 +6,7 @@ var rollbot = new Discord.Client();
 
 rollbot.on("message", function(message) {
   var channel_id = message.channel.id;
-  var match_data = message.content.match(/^\/roll ([1-9][0-9]*)d([0-9]+)/);
+  var match_data = message.content.match(/^\/roll ([1-9][0-9]*)d([1-9][0-9]*)/);
 
   if(match_data) {
     var n_dice = parseInt(match_data[1], 10);
